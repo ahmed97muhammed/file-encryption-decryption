@@ -31,9 +31,6 @@ class HomeController extends Controller
       return view('home');
     }
 
-
-    //Start Function to get details of a file
-
     public function file_analysis_ajax_url(Request $request)
     {
       if(request()->ajax()) 
