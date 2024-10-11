@@ -16,14 +16,9 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-
-    $this->middleware('auth');
-
-    //Middleware for languages
-    $this->middleware('Lang');
-
+        $this->middleware('auth');
+        $this->middleware('Lang');
     }
-
 
     /**
     * Show the application dashboard.
@@ -41,15 +36,13 @@ class HomeController extends Controller
 
     public function file_analysis_ajax_url(Request $request)
     {
-      //Start Ajax Check
       if(request()->ajax()) 
       {
             $validation = Validator::make($request->all(), [
             'analysis_file' => ['required'],
     
             ]);
-    
-            //Start validation Check
+
             if($validation->passes())
             {
                   $file=$request->file('analysis_file'); 
@@ -98,7 +91,6 @@ class HomeController extends Controller
 
       public function file_encrypt_ajax_url(Request $request)
       {
-        //Start Ajax Check
         if(request()->ajax()) 
         {
               $encrypted_file_content=session()->get('encrypted_file_content')[0];
